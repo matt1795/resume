@@ -1,69 +1,198 @@
-\documentclass{article}
+%-------------------------
+% Resume in Latex
+% Author : Sourabh Bajaj
+% Modified by: Matthew Knight
+% License : MIT
+%------------------------
 
-\usepackage[margin=0.75in]{geometry}
-\usepackage{hyperref}
+\documentclass[letterpaper,11pt]{article}
 
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    filecolor=magenta,
-    urlcolor=blue
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+	\vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+	\item\small{
+		\textbf{#1}{: #2 \vspace{-2pt}}
+	}
 }
 
-\setlength{\parindent}{0em}
-\setlength{\parskip}{0.5em}
+\newcommand{\resumeSubheading}[4]{
+	\vspace{-1pt}\item
+		\begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+			\textbf{#1} & #2 \\
+			\textit{\small#3} & \textit{\small #4} \\
+		\end{tabular*}
+	\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \begin{document}
 
-\begin{center}
-    \LARGE\bfseries
-    Matthew Knight
-\end{center}
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+	\textbf{\href{http://sourabhbajaj.com/}{\Large Matthew Knight}} & Email :
+		\href{mailto:mgk1795@gmail.com}{mgk1795@gmail.com}\\
+	\href{https://github.com/matt1795}{https://github.com/matt1795} & Mobile :
+		+1-778-791-4069 \\
+\end{tabular*}
 
-\section*{Summary}
 
-\section*{Skills and Abilities}
+%-----------EDUCATION-----------------
+\section{Education}
+	\resumeSubHeadingListStart
+		\resumeSubheading
+			{British Columbia Institute of Technology}{Burnaby, BC}
+			{Bachelor in Electrical Engineering}{Jan. 2014 -- June. 2018}
+	\resumeSubHeadingListEnd
 
-\begin{itemize}
-    
-    \item C/C++ Programming
 
-    \item 
-\end{itemize}
 
-\section*{Work Experience}
+%-----------EXPERIENCE-----------------
+\section{Experience}
+	\resumeSubHeadingListStart
+		\resumeSubheading
+			{Plasmatic Technologies Inc.}{Vancouver, BC}
+			{Full-Stack Engineer}{Oct 2017 - Present}
+		\resumeItemListStart
+			\resumeItem{Firmware}
+				{Reverse engineered a proprietary serial communication protocol
+				for a home security system.}
+			\resumeItem{Embedded Linux}
+				{Built the linux kernel with custom drivers for a touch screen
+				display. Implemented a demo GUI using pygame.}
+			\resumeItem{Back-End}
+				{Became adept at using Node.js and some AWS modules (Cognito,
+				DynamoDB, Iot-core, Lambda) in order to develop back-end for
+				Plasmatic.}
+			\resumeItem{Web and App Front-End}
+				{Worked with Graphical Designer to implement part of the
+				Web-based UI, and large components of the Mobile App using React
+				andt React Native respectively.}
+		\resumeItemListEnd
 
-\begin{table}
-        
-\end{table}
+		\resumeSubheading
+			{Argus Controls Ltd.}{Surrey, BC}
+			{R\&D Technician}{Jan 2014 - Oct 2016}
+			\resumeItemListStart
+				\resumeItem{Retrofitting a Growth Chamber}
+					{Replaced the control system of a germination chamber with
+					Argus's, tuned the temperature and humidity controllers, and
+					added necessary wiring to place testing sensors in chamber.}
+				\resumeItem{QA}
+					{Validation and verification of sensor accuracy performance
+					using retrofitted growth chamber.}
+				\resumeItem{Scripting}
+					{Used Python to automate the data analysis of sensor
+					performance.}
+			\resumeItemListEnd
 
-\section*{Projects}
+		\resumeSubheading
+			{Redline Manufacturing}{Surrey, BC}
+			{CNC Operator}{}
+			\resumeItemListStart
+				\resumeItem{CNC Mill}
+					{Ensured 4-Axis CNC Mill was loaded with required material
+					when needed. Deburred and Polished finished parts as
+					required.}
+				\resumeItem{QA}
+					{Inspected part tolerances to ensure meeting requirements
+					for ISO-9001 certification.}
+				\resumeItem{Maintenance}
+					{Swept floors, refilled coolant, cleaned machines -- did
+					whatever needed doing to keep the shop running smoothly}
+			\resumeItemListEnd
+	\resumeSubHeadingListEnd
 
-As many of my projects are software based, you can find a lot of them on my
-github which can be found \href{https://github.com/matt1795}{here}.
+%-----------PROJECTS-----------------
+\section{Projects}
+	\resumeSubHeadingListStart
+		\resumeSubItem{Prosthetics and Orthopedics Monitoring System}
+			{Capstone project, it is a platform for monitoring the wear
+			time of Scoliosis braces for compliance and research purposes.}
+		\resumeSubItem{BCIT Sailbot}{An extra-curricular and multi-disciplinary
+			project at BCIT to design and build an autonomous sailing robot.}
+		\resumeSubItem{CNC Router}{I set up a small CNC Router at home to 
+			machine woods, plastics, and soft metals.}
+		\resumeSubItem{HAM Radio}{Currently studying for my HAM Basic license.}
+		\resumeSubItem{cold\_war\_chat}{A project for an RTOS class, we designed
+			a communication stack using AES-128 encryption for use over a cheap,
+			half-duplex, OOK channel.}
+		\resumeSubItem{zork-irc}{A small project to hook up Zork, an old text
+			based RPG, to a friend's IRC.}
+		\resumeSubItem{markov-dictionary}{A graph data structure for storing the
+			markov-chain of arbitrary input text. Could be used for analysis or
+			text generation.}
+		\resumeSubItem{graphics}{A fork of a friend's C-based image drawing
+			library. I added color channels and a C++ wrapper class.}
+  \resumeSubHeadingListEnd
 
-Some of the most interesting from github include:
 
-\begin{itemize}
-    
-    \item BCIT-Sailbot: A multidisciplinary project to design and build an
-    autonomous sailing robot.
+%
+%--------PROGRAMMING SKILLS------------
+\section{Skills \& tools}
+	\resumeSubHeadingListStart
+		\item {
+			\textbf{Languages}{: C/C++, Assembly, Python, Javascript}
+		}
+		\item {
+				\textbf{Technologies}{: Node.js, AWS, MQTT, GraphQL, React \&
+				React Native, \LaTeX }
+		}
+		\item {
+			\textbf{Development Cycle}{: Git, Agile, JIRA, Confluence}
+		}
+		\item {
+			\textbf{Linux}{: I know my way around the command line, and I
+			absolutely love Linux for a development environment.}
+		}
+	\resumeSubHeadingListEnd
 
-    \item graphics: A C/C++ Image processing library
 
-    \item elex-7660: Course project where I designed a composite video encoder
-    using an FPGA in Verilog.
-
-\end{itemize}
-
-In addition to the above I've also worked extensively on a home setup of a CNC
-router.
-
-\section*{Education}
-
-I am currently finishing my Bachelor's degree of Electrical and Computer
-Engineering at the British Columbia Institute of Technology. I expect to
-graduate May of 2018 and my capstone project is a wireless scoliosis brace
-monitor.
-
+%-------------------------------------------
 \end{document}
