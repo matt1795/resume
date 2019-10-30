@@ -5,22 +5,21 @@
 % License : MIT
 %------------------------
 
-\documentclass[letterpaper,11pt]{article}
+\documentclass[letterpaper,10pt]{article}
 
-\usepackage{latexsym}
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
-\usepackage{marvosym}
 \usepackage[usenames,dvipsnames]{color}
-\usepackage{verbatim}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{graphicx}
 
+\graphicspath{{images/}}
 
 \pagestyle{fancy}
-\fancyhf{} % clear all header and footer fields
-\fancyfoot{}
+\fancyhf{} % clear al/l header and footer fields
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
@@ -31,11 +30,10 @@
 \addtolength{\topmargin}{-.5in}
 \addtolength{\textheight}{1.0in}
 
-\urlstyle{same}
-
 \raggedbottom
 \raggedright
 \setlength{\tabcolsep}{0in}
+\setlength{\footskip}{5pt}
 
 % Sections formatting
 \titleformat{\section}{
@@ -45,28 +43,29 @@
 %-------------------------
 % Custom commands
 \newcommand{\resumeItem}[2]{
-	\item\small{
-		\textbf{#1}{: #2 \vspace{-2pt}}
-	}
+    \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
 }
 
-\newcommand{\resumeSubheading}[4]{
-	\vspace{-1pt}\item
-		\begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-			\textbf{#1} & #2 \\
-			\textit{\small#3} & \textit{\small #4} \\
-		\end{tabular*}
-	\vspace{-5pt}
+\newcommand{\ResumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}
+  \vspace{-5pt}
 }
 
 \newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
 
-\renewcommand{\labelitemii}{$\circ$}
+\newenvironment{SubheadingList}
+  {\begin{itemize}[label=,leftmargin=0em]}
+  {\end{itemize}}
 
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newenvironment{ItemList}
+  {\begin{itemize}[label=,leftmargin=1em]}
+  {\end{itemize}\vspace{-5pt}}
 
 %-------------------------------------------
 %%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -75,123 +74,206 @@
 \begin{document}
 
 %----------HEADING-----------------
-\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-	\textbf{\href{http://sourabhbajaj.com/}{\Large Matthew Knight}} &
-		\href{mailto:mgk1795@gmail.com}{mgk1795@gmail.com}\\
-	\href{https://github.com/matt1795}{https://github.com/matt1795} & 
-	 778-791-4069 \\
-\end{tabular*}
-
-
+\begin{tabularx}{\textwidth}{X c >{\raggedleft\arraybackslash}X}
+  \begin{tabular}{l}
+    1766 Biatecki Rd. \\
+    Revelstoke, BC \\
+    V0E 2S1, Canada
+  \end{tabular} &
+  \textbf{\href{http://mknight.io}{\LARGE Matthew Knight}} &
+  \begin{tabular}{r}
+    +1-778-791-4069 \\
+    \href{mailto:matt@mknight.io}{matt@mknight.io}
+  \end{tabular} \\ &
+  \href{http://mknight.io}{\includegraphics[width=1.5em]{mknight.pdf}}
+   \href{https://github.com/matt1795}{\includegraphics[width=1.5em]{github}}
+  \href{https://gitlab.com/matt1795}{\includegraphics[width=1.5em]{gitlab}}
+  \href{https://www.linkedin.com/in/matthew-knight-a9b70894/}{\includegraphics[width=1.5em]{linkedin}}
+\end{tabularx}
 %
+\vspace{1em}
+
+% About me:
+An Embedded Software Developer interested in Industrial Automation, Distributed
+Systems, and Real-Time Applications. I'm looking for a remote contract or
+full-time position in order to live in Revelstoke, BC.
+
 %--------PROGRAMMING SKILLS------------
 \section{Skills \& Tools}
-	\resumeSubHeadingListStart
-		\item {
-				\textbf{Languages}{: C/C++ (proficient), Javascript (proficient),
-				Python (proficient), Assembly (occasional use), SQL (occasional
-				use), Verilog (occasional use).
-				}
-		}
-		\item {
-				\textbf{Technologies}{: Linux, Yocto, Conan, SQL, Node.js, AWS, MQTT, GraphQL, \LaTeX.}
-		}
-		\item {
-			\textbf{Development Tools}{: Git, JIRA, Confluence}
-		}
-	\resumeSubHeadingListEnd
+\begin{SubheadingList}
+  \resumeItem{Proficient}{C, C++, Python, Git, Unix, Bash, Assembly, JavaScript,
+  Verilog}
+  \resumeItem{Familiar}{Go, SQL, Java}
+\end{SubheadingList}
 
 %-----------EXPERIENCE-----------------
 \section{Experience}
-	\resumeSubHeadingListStart
+\begin{SubheadingList}
+  \ResumeSubheading
+    {Software Developer II}{Oct 2018 -- Aug 2019}
+    {Avigilon}{Vancouver, BC}
+  \begin{ItemList}
+    \resumeItem{C++ Visual Recognition Library}
+      {Implemented debugging system to dump inputs/outputs, latency and
+      throughput of pipeline that processed images using GPU hardware which
+      verified the performance requirements of video analytics library.}
+    \resumeItem{Convolutional Neural Network (CNN) Optimization}
+      {Wrote utilities in C++ to take trained neural net models in Caffe or
+      TensorFlow format and optimize them to a graphics processing unit (GPU)
+      architecture which increased throughput 100-200\%.}
+    \resumeItem{Certificate Management}
+      {Used Yocto Linux to add certificate management to Avigilon's internal
+      embedded Linux distribution which filled requirements of high security
+      applications.}
+    \resumeItem{Leveraged Knowledge}{in C, C++, Application Binary Interfaces,
+    GCC, GDB, OpenCV, Software Debugging, Conan, CMake, Git, Template
+    Metaprogramming, Docker, Linux, Protobuf, CNNs, Python, TensorRT,
+    TensorFlow, Continuous Integration (CI), GPUs, Yocto, SSL Certificates, HTTP
+    APIs, Go, Networking, React, Build Systems, Bash}
+  \end{ItemList}
 
-		\resumeSubheading
-			{Software Developer II}{Oct. 2018 - Aug. 2019}
-			{Avigilon}{Vancouver, BC}
-		\resumeItemListStart
-			\resumeItem{C++ Visual Recognition Library}
-				{Implemented debugging system to dump inputs/outputs, latency
-				and throughput of pipeline that processed images using GPU
-				hardware which verified the performance increase from
-				overhauling the library.}
-			\resumeItem{CNN Optimization using CI}
-				{Wrote utilities in C++ to take trained neural net models in
-				Caffe or TensorFlow format and optimize them to a GPU
-				architecture which has the potential to increase throughput
-				2-3x.}
-			\resumeItem{Certificate Management}
-				{Used Yocto Linux to add certificate management to Avigilon's
-				internal embedded Linux distribution which filled requirements
-				of high security applications.}
-		\resumeItemListEnd
+  \ResumeSubheading
+    {Full-Stack Engineer}{Oct 2017 -- Oct 2018}
+    {Plasmatic Technologies Inc.}{Vancouver, BC}
+  \begin{ItemList}
+    \resumeItem{Firmware}
+      {Reverse engineered a proprietary serial communication protocol
+      for a home security system by programming a microcontroller (MCU) with C to
+      handle hardware interface and streamed data over a UART to a PC
+      which analyzed packet structure using Python.}
+    \resumeItem{Embedded Linux}
+      {Built the linux kernel with custom drivers for a touch screen display
+      Implemented a demo graphical user interface (GUI) using a Python graphics
+      library called pygame.}
+    \resumeItem{Back-End}
+      {Became adept at using Node.js and some AWS modules (Cognito, DynamoDB,
+      Iot-core, Lambda) in order to develop back-end for Plasmatic.}
+    \resumeItem{Web and App Front-End}
+      {Worked with Graphical Designer to implement part of the Web-based UI, and
+      large components of the Mobile App using React and React Native
+      respectively.}
+    \resumeItem{Leveraged Knowledge}
+    {in Microcontrollers, C, USART, Python, Serial Protocols, Reverse
+    Engineering, Oscilloscope, Linux Kernel, Device Drivers, Node.js,
+    JavaScript, AWS, NoSQL, MQTT, GraphQL, APIs, Mobile App Development,
+    React-Native, Java, User Interfaces, User Experience, Git}
+  \end{ItemList}
 
-		\resumeSubheading
-			{Full-Stack Engineer}{Oct. 2017 - Oct. 2018}
-			{Plasmatic Technologies Inc.}{Vancouver, BC}
-		\resumeItemListStart
-			\resumeItem{Firmware}
-				{Reverse engineered a proprietary serial communication protocol
-				for a home security system by programming an MCU with C to
-				handle hardware interface and streamed data over a UART to a PC
-				which analyzed packet structure using Python.}
-			\resumeItem{Embedded Linux}
-				{Built the linux kernel with custom drivers for a touch screen
-				display. Implemented a demo GUI using pygame.}
-			\resumeItem{Back-End}
-				{Became adept at using Node.js and some AWS modules (Cognito,
-				DynamoDB, Iot-core, Lambda) in order to develop back-end for
-				Plasmatic.}
-			\resumeItem{Web and App Front-End}
-				{Worked with Graphical Designer to implement part of the
-				Web-based UI, and large components of the Mobile App using React
-				and React Native respectively.}
-		\resumeItemListEnd
-
-		\resumeSubheading
-			{R\&D Technician (8 month Co-op and two summers)}{Jan. 2015 - Aug. 2017}
-			{Argus Controls Ltd.}{Surrey, BC}
-			\resumeItemListStart
-				\resumeItem{Retrofitting a Growth Chamber}
-					{Replaced the control system of a germination chamber with
-					Argus's, tuned the temperature and humidity controllers, and
-					added necessary wiring to place testing sensors in chamber.}
-				\resumeItem{QA}
-					{Validation and verification of sensor accuracy performance
-					using retrofitted growth chamber.}
-				\resumeItem{Scripting}
-					{Used Python to automate the data analysis of sensor
-					performance.}
-			\resumeItemListEnd
-	\resumeSubHeadingListEnd
-
-%-----------PROJECTS-----------------
-\section{Projects}
-	\resumeSubHeadingListStart
-		\resumeSubItem{Prosthetics and Orthopedics Monitoring System}
-			{Capstone project -- a platform for monitoring the wear
-			time of Scoliosis braces for compliance and research purposes.}
-		\resumeSubItem{BCIT Sailbot}{An extra-curricular and multi-disciplinary
-			project at BCIT to design and build an autonomous sailing robot.}
-		\resumeSubItem{cold\_war\_chat}{Designed a communication stack for an
-			RTOS which included AES-128 encryption and a cheap, half-duplex,
-			OOK channel.}
-		\resumeSubItem{markov-dictionary}{A graph data structure for storing the
-			markov-chain of arbitrary input text. Could be used for analysis or
-			text generation.}
-		\resumeSubItem{graphics}{A fork of a friend's C-based image drawing
-			library, added color channels and a C++ wrapper class.}
-		\resumeSubItem{CNC Router}{A small CNC Router at home to
-			machine woods, plastics, and soft metals.}
-  \resumeSubHeadingListEnd
-
+  \ResumeSubheading
+    {R\&D Technician (8 Month Co-op and Summer Position)}{Jan 2015 -- Aug 2017}
+    {Argus Controls Ltd.}{Surrey, BC}
+  \begin{ItemList}
+    \resumeItem{Retrofitting a Growth Chamber}
+      {Replaced the control system of a germination chamber with Argus's, tuned
+      the temperature and humidity controllers, and added necessary wiring to
+      place testing sensors in chamber.}
+    \resumeItem{QA}
+      {Validation and verification of sensor accuracy performance using
+      retrofitted growth chamber.}
+    \resumeItem{Scripting}
+      {Used Python to automate the data analysis of sensor performance.}
+    \resumeItem{Leveraged Knowledge}
+    {in Circuit Analysis, Control Systems, Validation and Verification, Data
+    Analysis, Python, Statistics, Technical Documentation, and Thermodynamics}
+  \end{ItemList}
+\end{SubheadingList}
 
 %-----------EDUCATION-----------------
 \section{Education}
-	\resumeSubHeadingListStart
-		\resumeSubheading
-			{Bachelor in Electrical Engineering}{Jan. 2014 -- Jun. 2018}
-			{British Columbia Institute of Technology}{Burnaby, BC}
-	\resumeSubHeadingListEnd
+\begin{SubheadingList}
+  \ResumeSubheading
+    {Bachelor in Electrical Engineering}{Jan 2014 -- Jun 2018}
+    {British Columbia Institute of Technology}{Burnaby, BC}
+  \begin{ItemList}
+    \resumeItem{Coursework}
+    {Real-Time Embedded Systems, Digital Image and Video Processing, Wireless
+    System Design, Software Systems, Feedback Control, Computer Networking,
+    Digital System Design, Signal Processing and Filters, Sensors for
+    Measurement and Control, Microcontroller Systems.}
+  \end{ItemList}
+\end{SubheadingList}
 
+%-----------PROJECTS-----------------
+\section{Projects}
+\begin{SubheadingList}
+  \ResumeSubheading
+    {Prosthetics and Orthopedics Monitoring System (POMS)}{Sept 2017 -- Jun 2018}
+    {Team Member}{Capstone}
+    \begin{itemize}
+      \item Collaborated with orthopedics clinic to determine requirements of
+        Scoliosis brace monitoring system.
+      \item Designed a communication protocol utilizing Bluetooth, End-to-end
+        encryption in order to minimize power consumption of wearable sensor.
+      \item Designed software backend to communicate with patient devices and
+        provide clinicians with graphical interface for analyzing wear-time.
+      \item Built prototype sensor that utilized capacitive sensing to measure
+        wear-time and software backend for demonstration.
+    \end{itemize}
+  \ResumeSubheading
+    {BCIT Sailbot}{Sept 2017 -- Jun 2018}
+    {Organizer/Lead}{Extracurricular}
+    \begin{itemize}
+      \item Initiated club at BCIT to build and design an autonomous sailing
+        robot for competition.
+      \item Broke up project and collaborated with other students to research
+        and design solutions for different aspects of the project.
+      \item Designed software architecture for autonomous navigation.
+      \item After two years, prototypes for a fixed-wing sail, hull, and novel
+        wind sensor built.
+    \end{itemize}
+  \ResumeSubheading
+    {multiformats}{Sept 2019}
+    {Maintainer}{Personal}
+    \begin{itemize}
+      \item C++17 implementation of a collection of self-describing protocols
+        for hashing, base encoding, network addressing, protocol negotiation.
+      \item Analyzed requirements and created unit tests which prove
+        interoperability with other library implementations
+    \end{itemize}
+  \ResumeSubheading
+    {thermistor}{July 2019 -- Aug 2019}
+    {Maintainer}{Personal}
+    \begin{itemize}
+      \item Utilized Template Metaprogramming to create a header-only library
+        that generates lookup-tables for thermistors.
+      \item Implemented unit tests that proved accuracy of mathematical models.
+      \item Created an interface that makes it easy for users to work with
+        different datasheet specifications and circuit configurations.
+    \end{itemize}
+  \ResumeSubheading
+    {register-alias}{July 2019}
+    {Maintainer}{Personal}
+    \begin{itemize}
+      \item Created method for safe access of special-function registers of ARM
+        Cortex-M MCUs.
+      \item Wrote python script that took standardized, XML-based register maps
+        of MCUs and generated C++ code to represent each MCU as a type.
+      \item Tested new method on hardware and prototyped Template
+        Metaprogramming based peripheral drivers which safely and efficiently
+        handle different register maps.
+    \end{itemize}
+  \ResumeSubheading
+    {cold\_war\_chat}{Sept 2017}
+    {Partner}{Curricular Project}
+    \begin{itemize}
+      \item Designed a communication stack for a real-time operating System (RTOS)
+        which included AES-128 encryption and a cheap, half-duplex,
+        on-off-keying (OOK) transciever.
+      \item Configured each layer in the communication stack as a task within
+        TI-RTOS
+    \end{itemize}
+  \ResumeSubheading
+    {composit-video-driver}{Mar 2017}
+    {Partner}{Curricular Project}
+    \begin{itemize}
+      \item Designed hardware system to take the frame buffer of a display
+        output an analog composite video signal to drive an old cathode-ray-tube
+        monitor.
+      \item Utilized TDD to implement hardware design in Verilog
+      \item Built a prototype board to interface with an FPGA development board
+        and contained the Digital-to-Analog circuitry needed to generate the
+        composite video signal.
+    \end{itemize}
+\end{SubheadingList}
 %-------------------------------------------
 \end{document}
